@@ -1,0 +1,1 @@
+var angularModule="app";angular.module(angularModule,["ngRoute","ngAnimate"]),angular.module(angularModule).config(["$routeProvider","$locationProvider",function(e,l){l.html5Mode({enabled:!0,requireBase:!1}),e.otherwise({templateUrl:"/views/index.html"})}]),angular.module(angularModule).controller("ShellController",["$scope",function(e){e.title="hello"}]);

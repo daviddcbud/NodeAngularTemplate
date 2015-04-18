@@ -14,7 +14,8 @@ var bodyParser=require('body-parser');
 
 
 var app= express();
-
+app.set('view engine','ejs');
+app.use(express.static('public'));
 var port= process.env.PORT || 3000;
 
 app.use(bodyParser.json());
@@ -24,7 +25,7 @@ var bookRouter= require('./Routes/router')(Book);
 app.use('/api/Books', bookRouter);
 
 app.get('/', function(req,res) {
-	res.send('welcome');
+	res.render('server/pages/index');
 
 });
 
