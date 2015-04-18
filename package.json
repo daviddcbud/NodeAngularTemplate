@@ -14,5 +14,10 @@
     "gulp": "^3.8.11",
     "gulp-nodemon": "^2.0.2",
     "mongoose": "^4.0.1"
+  },
+  "devDependencies": {
+    "gulp-mocha": "^2.0.1",
+    "should": "^6.0.1",
+    "sinon": "^1.14.1"
   }
 }

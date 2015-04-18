@@ -1,9 +1,15 @@
 var express= require('express');
 var mongoose= require('mongoose');
 
-var db=mongoose.connect('mongodb://dev:pointe@ds061741.mongolab.com:61741/devtesting');
+var config= require('./config/settings')();
+
+process.env.MODE=process.env.MODE || 'development';
+var db=mongoose.connect(config.db);
+
+
 
 var Book=require('./models/bookModel');
+
 var bodyParser=require('body-parser');
 
 
@@ -14,7 +20,7 @@ var port= process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
  
-var bookRouter= require('./Routes/bookRouter')(Book);
+var bookRouter= require('./Routes/router')(Book);
 app.use('/api/Books', bookRouter);
 
 app.get('/', function(req,res) {
