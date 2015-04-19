@@ -15,17 +15,18 @@ var bodyParser=require('body-parser');
 
 var app= express();
 app.set('view engine','ejs');
+app.set('views',__dirname + '/serverViews');
 app.use(express.static('public'));
 var port= process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
  
-var bookRouter= require('./Routes/router')(Book);
+var bookRouter= require('./routes/router')(Book);
 app.use('/api/Books', bookRouter);
 
 app.get('/', function(req,res) {
-	res.render('server/pages/index');
+	res.render('index');
 
 });
 
