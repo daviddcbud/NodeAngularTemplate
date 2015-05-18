@@ -8,6 +8,9 @@ angular.module(angularModule).controller('ShellController',[
 			$scope.model.books=data;
 		});
 		
+		$http.get('/api/photo').success(function(data){
+			$scope.photo=data;
+		});
 		
 	}
 ]);
